@@ -1,0 +1,5 @@
+# Python packages for the course notebooks (Anaconda already includes most).
+pandas>=2.0
+matplotlib>=3.7
+requests>=2.31
+jupyterlab>=4.0

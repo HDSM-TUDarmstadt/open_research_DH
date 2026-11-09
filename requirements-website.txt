@@ -1,0 +1,2 @@
+# What GitHub installs to build the website (see .github/workflows/publish-website.yml)
+jupyter-book==1.0.4.post1

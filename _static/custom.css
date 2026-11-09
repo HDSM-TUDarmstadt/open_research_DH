@@ -1,0 +1,147 @@
+/* Look of the course website. Jupyter Book loads every .css file in _static automatically. */
+
+html[data-theme="light"] {
+  --ordh-ink: #1d3f66;          /* deep blue */
+  --ordh-accent: #c98a12;       /* sunflower ochre */
+  --ordh-accent-soft: #fbf3df;
+  --ordh-card: #ffffff;
+  --ordh-card-border: #e3e6ea;
+  --ordh-muted: #5b6573;
+  --ordh-hero-1: #1d3f66;
+  --ordh-hero-2: #2f6690;
+  --ordh-hero-text: #ffffff;
+  --pst-color-primary: #1d3f66;
+  --pst-color-secondary: #c98a12;
+  --pst-color-link: #1f5f99;
+  --pst-color-link-hover: #c98a12;
+}
+html[data-theme="dark"] {
+  --ordh-ink: #a9c8ec;
+  --ordh-accent: #f2b632;
+  --ordh-accent-soft: #2b2617;
+  --ordh-card: #1b2129;
+  --ordh-card-border: #303844;
+  --ordh-muted: #a3adba;
+  --ordh-hero-1: #142c47;
+  --ordh-hero-2: #1f4a70;
+  --ordh-hero-text: #f4f1e8;
+  --pst-color-primary: #a9c8ec;
+  --pst-color-secondary: #f2b632;
+  --pst-color-link: #8fbdf0;
+  --pst-color-link-hover: #f2b632;
+}
+
+/* ---- headings ------------------------------------------------------------------------------- */
+.bd-article h1, .bd-article h2, .bd-article h3 {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  color: var(--ordh-ink);
+  letter-spacing: -0.01em;
+}
+.bd-article h1 { font-size: 2.2rem; line-height: 1.2; }
+.bd-article h2 {
+  margin-top: 2.6rem;
+  padding: 0.35rem 0 0.35rem 0.9rem;
+  border-left: 5px solid var(--ordh-accent);
+}
+.bd-article h3 { margin-top: 1.8rem; }
+
+/* ---- welcome page: banner -------------------------------------------------------------------- */
+.hero {
+  background: linear-gradient(135deg, var(--ordh-hero-1), var(--ordh-hero-2));
+  color: var(--ordh-hero-text);
+  border-radius: 16px;
+  padding: 1.8rem 2rem 1.4rem;
+  margin: 1rem 0 2rem;
+  box-shadow: 0 8px 24px rgba(20, 40, 70, 0.18);
+}
+.hero p { color: var(--ordh-hero-text); font-size: 1.12rem; line-height: 1.6; }
+.hero strong { color: #f2c75c; }
+.hero .hero-kicker {
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; opacity: 0.85; margin-bottom: 0.6rem;
+}
+.hero-actions p { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 1.2rem 0 0.2rem; }
+.hero-actions a {
+  display: inline-block; padding: 0.55rem 1.15rem; border-radius: 999px; font-weight: 600;
+  text-decoration: none !important; border: 2px solid #f2c75c; color: #f4f1e8 !important;
+}
+.hero-actions a:first-child { background: #f2b632; color: #1d2b3a !important; border-color: #f2b632; }
+.hero-actions a:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+/* ---- welcome page: module cards --------------------------------------------------------------- */
+.module-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 1rem; margin: 1.2rem 0 1.6rem;
+}
+.module-card {
+  position: relative; background: var(--ordh-card); border: 1px solid var(--ordh-card-border);
+  border-top: 4px solid var(--ordh-ink); border-radius: 12px; padding: 0.9rem 1rem 0.8rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.module-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(20, 40, 70, 0.14); border-top-color: var(--ordh-accent); }
+.module-card p { margin: 0 0 0.45rem; font-size: 0.93rem; color: var(--ordh-muted); line-height: 1.45; }
+.module-card p strong a { color: var(--ordh-ink); font-size: 1.05rem; text-decoration: none; }
+.module-card p strong a::after { content: ""; position: absolute; inset: 0; }   /* whole card is clickable */
+.module-num {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--ordh-accent);
+}
+.module-time { font-size: 0.8rem; color: var(--ordh-muted); }
+.module-time::before { content: "\23F1\FE0E  "; }
+
+/* ---- welcome page: the seven steps -------------------------------------------------------------- */
+.steps ol { counter-reset: step; list-style: none; padding-left: 0; }
+.steps ol > li {
+  counter-increment: step; position: relative; padding: 0.55rem 0.8rem 0.55rem 3.1rem; margin-bottom: 0.45rem;
+  background: var(--ordh-card); border: 1px solid var(--ordh-card-border); border-radius: 10px;
+}
+.steps ol > li::before {
+  content: counter(step); position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%);
+  width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--ordh-ink); color: var(--ordh-card);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem;
+}
+.credits { margin-top: 2.5rem; font-size: 0.85rem; color: var(--ordh-muted); border-top: 1px solid var(--ordh-card-border); padding-top: 1rem; }
+
+/* ---- module pages ------------------------------------------------------------------------------ */
+/* "At a glance" table */
+.bd-article table { border-radius: 10px; overflow: hidden; }
+.bd-article table th { background: var(--ordh-accent-soft); }
+
+/* Video headings get a play symbol */
+.bd-article h3 a[href*="clip.place"]::before { content: "\25B6\FE0E  "; color: var(--ordh-accent); font-size: 0.85em; }
+
+/* Quoted notes ("Choose your starting point", tips) look like callout boxes */
+.bd-article blockquote {
+  background: var(--ordh-accent-soft); border-left: 4px solid var(--ordh-accent); border-radius: 8px;
+  padding: 0.7rem 1rem; margin: 1rem 0; font-style: normal;
+}
+.bd-article blockquote p:last-child { margin-bottom: 0; }
+
+/* Folded answers ("Check your answers") */
+.bd-article details {
+  border: 1px solid var(--ordh-card-border); border-radius: 10px; padding: 0.4rem 1rem; margin: 0.8rem 0 1.4rem;
+  background: var(--ordh-card);
+}
+.bd-article details summary { cursor: pointer; font-weight: 600; color: var(--ordh-ink); padding: 0.25rem 0; }
+.bd-article details[open] summary { margin-bottom: 0.4rem; border-bottom: 1px dashed var(--ordh-card-border); }
+
+/* Checklist boxes */
+.bd-article .task-list-item { list-style: none; }
+.bd-article .task-list-item-checkbox { margin-right: 0.45rem; transform: scale(1.15); accent-color: var(--ordh-accent); }
+
+/* Code cells: softer frame */
+.bd-article div.cell div.cell_input { border-left: 3px solid var(--ordh-ink); border-radius: 6px; }
+
+/* ---- sidebar: small logo with the course name next to it --------------------------------------- */
+.navbar-brand.logo { display: flex; align-items: center; gap: 0.7rem; padding: 0.4rem 0.2rem 0.8rem; }
+.navbar-brand img.logo__image { max-height: 52px; width: auto; margin: 0; }
+.navbar-brand .logo__title {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-size: 1.05rem;
+  line-height: 1.25; color: var(--ordh-ink); white-space: normal; font-weight: 700;
+}
+.bd-sidebar-primary .caption-text { text-transform: uppercase; letter-spacing: 0.07em; font-size: 0.75rem; color: var(--ordh-accent); }
+
+/* "At a glance" table: keep the labels on one line */
+.bd-article table td:first-child, .bd-article table th:first-child { white-space: nowrap; }
+@media (max-width: 600px) { .bd-article table td:first-child { white-space: normal; } }
+
+/* Video titles: calmer links */
+.bd-article h3 a { text-decoration: none; }
+.bd-article h3 a:hover { text-decoration: underline; }
