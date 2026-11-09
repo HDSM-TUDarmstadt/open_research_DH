@@ -1,0 +1,43 @@
+# The order of the pages on the website (Jupyter Book version 1)
+format: jb-book
+root: welcome
+parts:
+  - caption: Start
+    chapters:
+      - file: 00-introduction/00_first_notebook
+        title: "Module 0 · Course introduction"
+        sections:
+          - file: 00-introduction/running-on-colab
+          - file: 00-introduction/reflection-log-template
+  - caption: Modules
+    chapters:
+      - file: 01-open-humanities/01_whose_data_is_open
+        title: "Module 1 · Open Humanities"
+      - file: 02-documentation-systemic-practice/02_project_setup
+        title: "Module 2 · Documenting as a systemic practice"
+        sections:
+          - file: 02-documentation-systemic-practice/example-projects
+      - file: 03-open-data/03_build_dataset
+        title: "Module 3 · Resources for research"
+        sections:
+          - file: 03-open-data/open-heritage-data-sources
+      - file: 04-documenting-ai/04_filter_with_ai
+        title: "Module 4 · Documenting AI"
+      - file: 05-data-analysis/05_data_analysis
+        title: "Module 5 · Data analysis and documentation"
+      - file: 06-data-enhancement/06_wikidata_enhancement
+        title: "Module 6 · Data enhancement"
+      - file: 07-reproducible-research/07_reproducibility_check
+        title: "Module 7 · Reproducible research"
+        sections:
+          - file: 07-reproducible-research/reproducibility-test-template
+      - file: 08-open-publishing/08_prepare_publication
+        title: "Module 8 · Open publishing and FAIR/CARE"
+  - caption: Finish
+    chapters:
+      - file: 09-wrap-up/09_wrap_up
+        title: "Course wrap-up"
+        sections:
+          - file: 09-wrap-up/publish_your_project_as_a_website
+      - file: datasets/README
+        title: "The course datasets"
