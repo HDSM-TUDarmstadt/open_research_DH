@@ -1,0 +1,44 @@
+# Publishes the website on GitHub Pages every time you push to the main branch.
+# You do not need to change anything in this file.
+# Once per repository: Settings > Pages > Source: "GitHub Actions".
+name: Publish the course website
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:            # adds a "Run workflow" button in the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Install Jupyter Book
+        run: pip install -r requirements-website.txt
+      - name: Build the website
+        run: jupyter-book build . --keep-going
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _build/html
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
